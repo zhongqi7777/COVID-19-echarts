@@ -34,78 +34,7 @@
     <link rel="shortcut icon" href="assets/logo.png">
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
-      <a class="navbar-brand" href="https://covid19.tk">
-        <img src="assets/logo.png" width="30" height="30" class="d-inline-block align-center" alt="">
-        COVID19.tk
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto" id="navbar">
-          <li class="nav-item">
-            <a class="nav-link" href="#tab=world-map">世界地图</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#tab=world-trends" id="continentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">各国趋势</a>
-            <div class="dropdown-menu" aria-labelledby="continentDropdown">
-              <a class="dropdown-item" href="#tab=world-trends&amp;continent=all">全部国家</a>
-              <a class="dropdown-item" href="#tab=world-trends&amp;continent=亚洲">亚洲</a>
-              <a class="dropdown-item" href="#tab=world-trends&amp;continent=欧洲">欧洲</a>
-              <a class="dropdown-item" href="#tab=world-trends&amp;continent=大洋洲">大洋洲</a>
-              <a class="dropdown-item" href="#tab=world-trends&amp;continent=北美洲">北美洲</a>
-              <a class="dropdown-item" href="#tab=world-trends&amp;continent=南美洲">南美洲</a>
-              <a class="dropdown-item" href="#tab=world-trends&amp;continent=非洲">非洲</a>
-              <a class="dropdown-item" href="#tab=world-trends&amp;continent=其他">其他</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#tab=countries-compare" id="compareDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">国家对比</a>
-            <div class="dropdown-menu" aria-labelledby="compareDropdown">
-              <a class="dropdown-item" href="#tab=countries-compare&amp;metrics=confirmed">累计确诊人数</a>
-              <a class="dropdown-item" href="#tab=countries-compare&amp;metrics=exists">现存确诊人数</a>
-              <a class="dropdown-item" href="#tab=countries-compare&amp;metrics=increase">新增确诊人数</a>
-              <a class="dropdown-item" href="#tab=countries-compare&amp;metrics=dead">累计死亡人数</a>
-              <a class="dropdown-item" href="#tab=countries-compare&amp;metrics=percent">每百万人口确诊人数</a>
-              <a class="dropdown-item" href="#tab=countries-compare&amp;metrics=deadrate">累计死亡率</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#tab=china-trends" id="chinaDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">中国趋势</a>
-            <div class="dropdown-menu" aria-labelledby="chinaDropdown">
-              <a class="dropdown-item" href="#tab=summary">总体趋势</a>
-              <a class="dropdown-item" href="#tab=zerodays">新增概览</a>
-              <a class="dropdown-item" href="#tab=trends">省市趋势</a>
-              <a class="dropdown-item" href="#tab=map">省市地图</a>
-              <a class="dropdown-item" href="#tab=cities-map">全部城市地图</a>
-            </div>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0 mr-2">
-          <input id="searchField" class="form-control mr-sm-2" type="search" placeholder="国家或城市" aria-label="Search">
-          <button onclick="searchArea(); return false;" class="btn btn-outline-success my-2 my-sm-0">搜索</button>
-        </form>
-        <ul class="navbar-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="langDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              ZH
-            </a>
-            <div class="dropdown-menu" aria-labelledby="langDropdown">
-              <a class="dropdown-item" href="javascript:setCurrentLang('zh')">中文</a>
-              <a class="dropdown-item" href="javascript:setCurrentLang('en')">English</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://github.com/ohdarling/2019-nCoV-Charts">GitHub</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://github.com/BlankerL/DXY-2019-nCoV-Data" target="_blank">数据来源</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
 
     <div class="container-fluid" id="chart_container">
       Loading...
