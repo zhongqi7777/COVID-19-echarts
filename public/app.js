@@ -16,7 +16,7 @@ let chartsContainerId = 'chart_container';
 let allCharts = [];
 
 const showLoading = (() => {
-  const el = $('#' + chartsContainerId);
+  const el = $('#' + chartsContainerId);;
   let loading = null;
   return function (show = true, pe) {
     if (typeof show === 'string') {
@@ -59,7 +59,7 @@ async function prepareChartMap(mapName) {
     const url = `map/json/${isProvince ? 'province/' : ''}${mapName}.json`;
     geoJSON = (await axios.get(url, {
       onDownloadProgress: (pe) => {
-        showLoading('map', pe);
+        //showLoading('map', pe);
       }
     })).data;
     echarts.registerMap(mapName, geoJSON);
@@ -75,7 +75,7 @@ async function getData(type) {
     const ret = await axios.get(`by_${type}.json?t=${t}`, {
       onDownloadProgress: (pe) => {
         if (pe.lengthComputable) {
-          showLoading('data', pe);
+          //showLoading('data', pe);
         }
       }
     });
@@ -83,10 +83,6 @@ async function getData(type) {
   }
 
   return allDataStore[type];
-}
-
-function shortAreaName(name) {
-  return name.replace(/(区|省|市|自治区|壮|回|族|维吾尔)/g, '');
 }
 
 
@@ -146,10 +142,11 @@ async function createMapChartConfig({ mapName, data, valueKey = 'confirmedCount'
         {
           type: 'piecewise',
           pieces: visualPieces,
-          left: 'auto',
+          // left: 'auto',
           right: 30,
           bottom: 100,
-          seriesIndex: 0,
+          // seriesIndex: 0,
+          show:false
         }
       ],
       series: [
@@ -199,9 +196,7 @@ async function createMapChartConfig({ mapName, data, valueKey = 'confirmedCount'
 
 
 async function setupMapCharts(records, container, province = '', allCities = false) {
-  const mapName = !province ? (allCities ? 'china-cities' : 'china') : {
-    '安徽': 'anhui', '澳门': 'aomen', '北京': 'beijing', '重庆': 'chongqing', '福建': 'fujian', '甘肃': 'gansu', '广东': 'guangdong', '广西': 'guangxi', '贵州': 'guizhou', '海南': 'hainan', '河北': 'hebei', '黑龙江': 'heilongjiang', '河南': 'henan', '湖北': 'hubei', '湖南': 'hunan', '江苏': 'jiangsu', '江西': 'jiangxi', '吉林': 'jilin', '辽宁': 'liaoning', '内蒙古': 'neimenggu', '宁夏': 'ningxia', '青海': 'qinghai', '山东': 'shandong', '上海': 'shanghai', '山西': 'shanxi', '陕西': 'shanxi1', '四川': 'sichuan', '台湾': 'taiwan', '天津': 'tianjin', '香港': 'xianggang', '新疆': 'xinjiang', '西藏': 'xizang', '云南': 'yunnan', '浙江': 'zhejiang',
-  }[shortAreaName(province)];
+  const mapName = "china";
   const html = '<div id="mapchart" class="mychart" style="display:inline-block;width:100%;height:100%;"></div>';
   container.innerHTML = html;
   const cfg = await createMapChartConfig({ mapName, data: records });
@@ -212,7 +207,7 @@ async function setupMapCharts(records, container, province = '', allCities = fal
 }
 
 async function prepareChartData(name, type = 'area') {
-  showLoading();
+  //showLoading();
 
   const dataList = await getData(type);
 
@@ -248,7 +243,7 @@ async function prepareChartData(name, type = 'area') {
 async function showMap(name) {
   const records = await prepareChartData(name, 'date');
   allCharts = await setupMapCharts(records, document.getElementById(chartsContainerId), name);
-  showLoading(false);
+  //showLoading(false);
 }
 
 function handleHashChanged() {
