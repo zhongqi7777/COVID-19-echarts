@@ -1,7 +1,6 @@
 /* global $ axios echarts build_timestamp getTextForKey getCurrentLang getLangProp */
 /* exported switchMapMetrics searchArea */
 
-let allDataStore = {};
 let mapDisplayMetrics = 'current';
 
 const mobulesConfig = {
@@ -12,38 +11,11 @@ const mobulesConfig = {
 };
 
 
-let chartsContainerId = 'chart_container';
-let allCharts = [];
-
-const showLoading = (() => {
-  const el = $('#' + chartsContainerId);;
-  let loading = null;
-  return function (show = true, pe) {
-    if (typeof show === 'string') {
-      const progress = pe && pe.lengthComputable ? `${Math.ceil(pe.loaded/pe.total*100)}% ` : '';
-      const msg = `Loading ${show} ${progress}...`;
-      if (loading) {
-        $('.loading-overlay-content', el.overlay).text(msg);
-      } else {
-        loading = el.loading({ message: msg });
-      }
-    } else {
-      if (show) {
-        loading = el.loading({ message: 'Loading ...'});
-      } else {
-        el.loading('stop');
-        loading = null;
-      }
-    }
-  };
-
-})();
-
 function getVisualPieces(type) {
   const pieces = {
     country: [
       { min: 3001, label: '3001单以上', color: '#003C87' },
-      { min: 2000, max:3000, label: '2000-3001单', color: '#003C87' },
+      { min: 2000, max: 3000, label: '2000-3001单', color: '#003C87' },
       { min: 1001, max: 2000, label: '1001-2000单', color: '#0373FF' },
       { min: 1, max: 1000, label: '1-1000单', color: '#5EC6F9' }
     ]
@@ -55,7 +27,7 @@ function getVisualPieces(type) {
 async function prepareChartMap(mapName) {
   let geoJSON = null;
   if (!echarts.getMap(mapName)) {
-    const isProvince = [ 'china', 'china-cities', 'world' ].indexOf(mapName) === -1;
+    const isProvince = ['china', 'china-cities', 'world'].indexOf(mapName) === -1;
     const url = `map/json/${isProvince ? 'province/' : ''}${mapName}.json`;
     geoJSON = (await axios.get(url, {
       onDownloadProgress: (pe) => {
@@ -70,19 +42,8 @@ async function prepareChartMap(mapName) {
 }
 
 async function getData(type) {
-  if (!allDataStore[type]) {
-    const t = typeof build_timestamp !== 'undefined' ? parseInt(build_timestamp) || 1 : 1;
-    const ret = await axios.get(`by_${type}.json?t=${t}`, {
-      onDownloadProgress: (pe) => {
-        if (pe.lengthComputable) {
-          //showLoading('data', pe);
-        }
-      }
-    });
-    allDataStore[type] = ret.data;
-  }
-
-  return allDataStore[type];
+  const ret = await axios.get(`by_${type}.json`);
+  return ret.data;
 }
 
 
@@ -112,22 +73,22 @@ async function createMapChartConfig({ mapName, data, valueKey = 'confirmedCount'
         currentIndex: data.length - 1,
         playInterval: 1000,
         data: data.map(d => d.day),
-        show:false
+        show: false
       },
       tooltip: {
         show: true,
         trigger: 'item',
       },
-      xAxis:  [
+      xAxis: [
         {
           type: 'value',
           axisLine: { show: false, },
           axisTick: { show: false, },
           axisLabel: { show: false, },
-          splitLine: { show: false,},
+          splitLine: { show: false, },
         }
       ],
-      yAxis:  [
+      yAxis: [
         {
           type: 'category',
           axisLabel: {
@@ -143,10 +104,11 @@ async function createMapChartConfig({ mapName, data, valueKey = 'confirmedCount'
           type: 'piecewise',
           pieces: visualPieces,
           // left: 'auto',
-          right: 30,
-          bottom: 100,
+          right: 0,
+          bottom: 150,
           // seriesIndex: 0,
-          show:false
+          show: true,
+          width: 20
         }
       ],
       series: [
@@ -203,59 +165,22 @@ async function setupMapCharts(records, container, province = '', allCities = fal
   const chart = echarts.init(document.getElementById('mapchart'));
   chart.setOption(cfg);
 
-  return [ chart ];
+  return [chart];
 }
-
-async function prepareChartData(name, type = 'area') {
-  //showLoading();
-
-  const dataList = await getData(type);
-
-  allCharts.forEach(c => {
-    c.clear();
-    c.dispose();
-  });
-  allCharts = [];
-
-  document.getElementById(chartsContainerId).innerHTML = 'Loading...';
-
-  let records = dataList;
-  if (name) {
-    if (type === 'area') {
-      records = dataList.filter(v => v.name === name)[0].cityList;
-    } else {
-      records = dataList.map(d => {
-        return {
-          day: d.day,
-          records: d.records.filter(p => p.name == name)[0].cityList,
-        };
-      });
-    }
-  }
-  records.forEach(v => {
-    v.showName = v.name;
-  });
-
-  return records;
-}
-
 
 async function showMap(name) {
-  const records = await prepareChartData(name, 'date');
-  allCharts = await setupMapCharts(records, document.getElementById(chartsContainerId), name);
-  //showLoading(false);
+  const records = await getData("date");
+  setupMapCharts(records, document.getElementById("chart_container"), name);
 }
 
 function handleHashChanged() {
-
   const func = mobulesConfig["map"];
-
   func.func("", "");
 }
 
 async function main() {
   handleHashChanged();
-  window.onresize  = handleHashChanged;
+  window.onresize = handleHashChanged;
 }
 
 main();
