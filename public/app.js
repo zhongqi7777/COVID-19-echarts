@@ -27,13 +27,7 @@ function getVisualPieces(type) {
 async function prepareChartMap(mapName) {
   let geoJSON = null;
   if (!echarts.getMap(mapName)) {
-    const isProvince = ['china', 'china-cities', 'world'].indexOf(mapName) === -1;
-    const url = `map/json/${isProvince ? 'province/' : ''}${mapName}.json`;
-    geoJSON = (await axios.get(url, {
-      onDownloadProgress: (pe) => {
-        //showLoading('map', pe);
-      }
-    })).data;
+    geoJSON = (await axios.get('map/json/china.json')).data;
     echarts.registerMap(mapName, geoJSON);
   } else {
     geoJSON = echarts.getMap(mapName).geoJson;
@@ -43,12 +37,12 @@ async function prepareChartMap(mapName) {
 
 async function getData(type) {
   const ret = await axios.get(`by_${type}.json`);
+  console.log("ret",ret.data);
   return ret.data;
 }
 
 
 async function createMapChartConfig({ mapName, data, valueKey = 'confirmedCount' }) {
-  valueKey = mapDisplayMetrics === 'accum' ? 'confirmedCount' : 'insickCount';
   let geoJSON = await prepareChartMap(mapName);
   geoJSON.features.forEach(v => {
     const showName = v.properties.name;
@@ -62,6 +56,7 @@ async function createMapChartConfig({ mapName, data, valueKey = 'confirmedCount'
     });
   });
 
+
   const visualPieces = getVisualPieces(mapName === 'china' ? 'country' : 'city');
 
 
@@ -70,7 +65,7 @@ async function createMapChartConfig({ mapName, data, valueKey = 'confirmedCount'
       timeline: {
         axisType: 'category',
         autoPlay: false,
-        currentIndex: data.length - 1,
+        // currentIndex: data.length - 1,
         playInterval: 1000,
         data: data.map(d => d.day),
         show: false
@@ -143,7 +138,7 @@ async function createMapChartConfig({ mapName, data, valueKey = 'confirmedCount'
             data: d.records.map(r => {
               return {
                 name: r.showName,
-                value: r[valueKey],
+                value: r["insickCount"],//confirmedCount insickCount
                 insick: r.insickCount,
               };
             }),

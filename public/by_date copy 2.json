@@ -1,5 +1,6 @@
 [
   {
+    "day": "1/24",
     "records": [
       {
         "name": "湖北省",
@@ -14,7 +15,239 @@
         "insickCount": 494,
         "confirmedIncreased": 549,
         "curedIncreased": 31,
-        "deadIncreased": 24
+        "deadIncreased": 24,
+        "cityList": [
+          {
+            "name": "武汉",
+            "provinceName": "湖北省",
+            "confirmedCount": 495,
+            "curedCount": 31,
+            "deadCount": 23,
+            "updateTime": "1/24",
+            "lastUpdate": "2020-01-24T09:30:09.000Z",
+            "zipCode": "420100",
+            "suspectedCount": 0,
+            "insickCount": 441,
+            "confirmedIncreased": 495,
+            "curedIncreased": 31,
+            "deadIncreased": 23
+          },
+          {
+            "name": "孝感",
+            "provinceName": "湖北省",
+            "confirmedCount": 22,
+            "curedCount": 0,
+            "deadCount": 0,
+            "updateTime": "1/24",
+            "lastUpdate": "2020-01-24T09:30:09.000Z",
+            "zipCode": "420900",
+            "suspectedCount": 0,
+            "insickCount": 22,
+            "confirmedIncreased": 22,
+            "curedIncreased": 0,
+            "deadIncreased": 0
+          },
+          {
+            "name": "黄冈",
+            "provinceName": "湖北省",
+            "confirmedCount": 12,
+            "curedCount": 0,
+            "deadCount": 0,
+            "updateTime": "1/24",
+            "lastUpdate": "2020-01-24T09:30:09.000Z",
+            "zipCode": "421100",
+            "suspectedCount": 0,
+            "insickCount": 12,
+            "confirmedIncreased": 12,
+            "curedIncreased": 0,
+            "deadIncreased": 0
+          },
+          {
+            "name": "荆州",
+            "provinceName": "湖北省",
+            "confirmedCount": 8,
+            "curedCount": 0,
+            "deadCount": 0,
+            "updateTime": "1/24",
+            "lastUpdate": "2020-01-24T09:30:09.000Z",
+            "zipCode": "421000",
+            "suspectedCount": 0,
+            "insickCount": 8,
+            "confirmedIncreased": 8,
+            "curedIncreased": 0,
+            "deadIncreased": 0
+          },
+          {
+            "name": "鄂州",
+            "provinceName": "湖北省",
+            "confirmedCount": 0,
+            "curedCount": 0,
+            "deadCount": 0,
+            "updateTime": "1/24",
+            "confirmedIncreased": 0,
+            "curedIncreased": 0,
+            "deadIncreased": 0
+          },
+          {
+            "name": "随州",
+            "provinceName": "湖北省",
+            "confirmedCount": 0,
+            "curedCount": 0,
+            "deadCount": 0,
+            "updateTime": "1/24",
+            "confirmedIncreased": 0,
+            "curedIncreased": 0,
+            "deadIncreased": 0
+          },
+          {
+            "name": "襄阳",
+            "provinceName": "湖北省",
+            "confirmedCount": 0,
+            "curedCount": 0,
+            "deadCount": 0,
+            "updateTime": "1/24",
+            "confirmedIncreased": 0,
+            "curedIncreased": 0,
+            "deadIncreased": 0
+          },
+          {
+            "name": "黄石",
+            "provinceName": "湖北省",
+            "confirmedCount": 0,
+            "curedCount": 0,
+            "deadCount": 0,
+            "updateTime": "1/24",
+            "confirmedIncreased": 0,
+            "curedIncreased": 0,
+            "deadIncreased": 0
+          },
+          {
+            "name": "宜昌",
+            "provinceName": "湖北省",
+            "confirmedCount": 1,
+            "curedCount": 0,
+            "deadCount": 1,
+            "updateTime": "1/24",
+            "lastUpdate": "2020-01-24T09:30:09.000Z",
+            "zipCode": "420500",
+            "suspectedCount": 0,
+            "insickCount": 0,
+            "confirmedIncreased": 1,
+            "curedIncreased": 0,
+            "deadIncreased": 1
+          },
+          {
+            "name": "荆门",
+            "provinceName": "湖北省",
+            "confirmedCount": 8,
+            "curedCount": 0,
+            "deadCount": 0,
+            "updateTime": "1/24",
+            "lastUpdate": "2020-01-24T09:30:09.000Z",
+            "zipCode": "420800",
+            "suspectedCount": 0,
+            "insickCount": 8,
+            "confirmedIncreased": 8,
+            "curedIncreased": 0,
+            "deadIncreased": 0
+          },
+          {
+            "name": "咸宁",
+            "provinceName": "湖北省",
+            "confirmedCount": 0,
+            "curedCount": 0,
+            "deadCount": 0,
+            "updateTime": "1/24",
+            "confirmedIncreased": 0,
+            "curedIncreased": 0,
+            "deadIncreased": 0
+          },
+          {
+            "name": "十堰",
+            "provinceName": "湖北省",
+            "confirmedCount": 1,
+            "curedCount": 0,
+            "deadCount": 0,
+            "updateTime": "1/24",
+            "lastUpdate": "2020-01-24T09:30:09.000Z",
+            "zipCode": "420300",
+            "suspectedCount": 0,
+            "insickCount": 1,
+            "confirmedIncreased": 1,
+            "curedIncreased": 0,
+            "deadIncreased": 0
+          },
+          {
+            "name": "仙桃",
+            "provinceName": "湖北省",
+            "confirmedCount": 2,
+            "curedCount": 0,
+            "deadCount": 0,
+            "updateTime": "1/24",
+            "lastUpdate": "2020-01-24T09:30:09.000Z",
+            "zipCode": "429004",
+            "suspectedCount": 0,
+            "insickCount": 2,
+            "confirmedIncreased": 2,
+            "curedIncreased": 0,
+            "deadIncreased": 0
+          },
+          {
+            "name": "天门",
+            "provinceName": "湖北省",
+            "confirmedCount": 0,
+            "curedCount": 0,
+            "deadCount": 0,
+            "updateTime": "1/24",
+            "confirmedIncreased": 0,
+            "curedIncreased": 0,
+            "deadIncreased": 0
+          },
+          {
+            "name": "监狱系统",
+            "provinceName": "湖北省",
+            "confirmedCount": 0,
+            "curedCount": 0,
+            "deadCount": 0,
+            "updateTime": "1/24",
+            "confirmedIncreased": 0,
+            "curedIncreased": 0,
+            "deadIncreased": 0
+          },
+          {
+            "name": "恩施州",
+            "provinceName": "湖北省",
+            "confirmedCount": 0,
+            "curedCount": 0,
+            "deadCount": 0,
+            "updateTime": "1/24",
+            "confirmedIncreased": 0,
+            "curedIncreased": 0,
+            "deadIncreased": 0
+          },
+          {
+            "name": "潜江",
+            "provinceName": "湖北省",
+            "confirmedCount": 0,
+            "curedCount": 0,
+            "deadCount": 0,
+            "updateTime": "1/24",
+            "confirmedIncreased": 0,
+            "curedIncreased": 0,
+            "deadIncreased": 0
+          },
+          {
+            "name": "神农架林区",
+            "provinceName": "湖北省",
+            "confirmedCount": 0,
+            "curedCount": 0,
+            "deadCount": 0,
+            "updateTime": "1/24",
+            "confirmedIncreased": 0,
+            "curedIncreased": 0,
+            "deadIncreased": 0
+          }
+        ]
       },
       {
         "name": "广东省",
@@ -5846,7 +6079,41 @@
         "confirmedIncreased": 0,
         "curedIncreased": 0,
         "deadIncreased": 0,
-        "insickCount":5000
+        "cityList": [
+          {
+            "name": "西宁",
+            "provinceName": "青海省",
+            "confirmedCount": 0,
+            "curedCount": 0,
+            "deadCount": 0,
+            "updateTime": "1/24",
+            "confirmedIncreased": 0,
+            "curedIncreased": 0,
+            "deadIncreased": 0
+          },
+          {
+            "name": "海北州",
+            "provinceName": "青海省",
+            "confirmedCount": 0,
+            "curedCount": 0,
+            "deadCount": 0,
+            "updateTime": "1/24",
+            "confirmedIncreased": 0,
+            "curedIncreased": 0,
+            "deadIncreased": 0
+          },
+          {
+            "name": "北海州",
+            "provinceName": "青海省",
+            "confirmedCount": 0,
+            "curedCount": 0,
+            "deadCount": 0,
+            "updateTime": "1/24",
+            "confirmedIncreased": 0,
+            "curedIncreased": 0,
+            "deadIncreased": 0
+          }
+        ]
       },
       {
         "name": "澳门",
@@ -5897,6 +6164,10 @@
           }
         ]
       }
-    ]
+    ],
+    "confirmedIncreased": 0,
+    "curedIncreased": 0,
+    "deadIncreased": 0,
+    "maxZeroIncrDays": 3
   }
 ]
