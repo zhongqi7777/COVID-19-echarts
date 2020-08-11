@@ -1,7 +1,6 @@
 /* global $ axios echarts build_timestamp getTextForKey getCurrentLang getLangProp */
 /* exported switchMapMetrics searchArea */
 
-let mapDisplayMetrics = 'current';
 
 const mobulesConfig = {
   'map': {
@@ -100,10 +99,9 @@ async function createMapChartConfig({ mapName, data, valueKey = 'confirmedCount'
           pieces: visualPieces,
           // left: 'auto',
           right: 0,
-          bottom: 150,
+          bottom: 200,
           // seriesIndex: 0,
-          show: true,
-          width: 20
+          show: true
         }
       ],
       series: [
